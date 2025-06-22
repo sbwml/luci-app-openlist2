@@ -36,10 +36,10 @@ DISTRIB_ARCH="${DISTRIB_ARCH:-unknown}"
 
 # Detect package manager and set SDK version
 if [ -x "/usr/bin/apk" ]; then
-    PKG_MANAGER="apk"
+    PKG_MANAGER="apk add --allow-untrusted"
     SDK="SNAPSHOT"
 elif command -v opkg >/dev/null 2>&1; then
-    PKG_MANAGER="opkg"
+    PKG_MANAGER="opkg install"
     SDK="openwrt-24.10"
 else
     msg_red "No supported package manager found."
@@ -135,7 +135,7 @@ tar -zxf "$TEMP_DIR/$PKG_FILE" -C "$TEMP_DIR/"
 for pkg in "$TEMP_DIR"/packages_ci/openlist*.ipk \
            "$TEMP_DIR"/packages_ci/luci-app-openlist*.ipk \
            "$TEMP_DIR"/packages_ci/luci-i18n-openlist-zh-cn*.ipk; do
-    [ -f "$pkg" ] && $PKG_MANAGER install "$pkg"
+    [ -f "$pkg" ] && $PKG_MANAGER "$pkg"
 done
 
 # Clean up temporary files and finish
