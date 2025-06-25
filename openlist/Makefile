@@ -23,7 +23,7 @@ PKG_MAINTAINER:=sbwml <admin@cooluc.com>
 
 define Download/openlist-frontend
   FILE:=openlist-frontend-dist-v$(PKG_WEB_VERSION).tar.gz
-  URL:=https://github.com/OpenListTeam/OpenList-Frontend/releases/download/v$(PKG_WEB_VERSION)/
+  URL:=https://github.com/OpenListTeam/OpenList-Frontend/releases/download/v$(PKG_WEB_VERSION)/openlist-frontend-dist-v$(PKG_WEB_VERSION).tar.gz
   HASH:=f28d15059918dbaf4a0da2f2d92b4a956b46019d321f567217ad4318076c2462
 endef
 
@@ -79,6 +79,7 @@ endif
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
+	$(INSTALL_DIR) $(PKG_BUILD_DIR)/public/dist
 	$(TAR) --strip-components=1 -C $(PKG_BUILD_DIR)/public/dist -xzf $(DL_DIR)/openlist-frontend-dist-v$(PKG_WEB_VERSION).tar.gz
 	$(SED) 's_https://docs.oplist.org/logo.png_/assets/logo.png_g' $(PKG_BUILD_DIR)/public/dist/index.html
 	$(SED) 's_https://docs.oplist.org/logo.svg_/assets/logo.svg_g' $(PKG_BUILD_DIR)/public/dist/index.html
