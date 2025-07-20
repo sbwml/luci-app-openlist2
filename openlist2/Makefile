@@ -57,7 +57,7 @@ define Package/openlist2
 endef
 
 define Package/openlist2/conffiles
-/etc/openlist
+/etc/openlist2
 /etc/config/openlist2
 endef
 
@@ -88,10 +88,10 @@ define Package/openlist2/install
 	$(call GoPackage/Package/Install/Bin,$(PKG_INSTALL_DIR))
 	$(INSTALL_DIR) $(1)/usr/bin
 	$(INSTALL_BIN) $(PKG_INSTALL_DIR)/usr/bin/OpenList $(1)/usr/bin/openlist2
-	$(INSTALL_DIR) $(1)/etc/config $(1)/etc/init.d $(1)/etc/openlist
+	$(INSTALL_DIR) $(1)/etc/config $(1)/etc/init.d $(1)/etc/openlist2
 	$(INSTALL_CONF) $(CURDIR)/files/openlist2.config $(1)/etc/config/openlist2
 	$(INSTALL_BIN) $(CURDIR)/files/openlist2.init $(1)/etc/init.d/openlist2
-	$(INSTALL_DATA) $(CURDIR)/files/data.db $(1)/etc/openlist/data.db
+	$(INSTALL_DATA) $(CURDIR)/files/data.db $(1)/etc/openlist2/data.db
 endef
 
 $(eval $(call Download,openlist-frontend))

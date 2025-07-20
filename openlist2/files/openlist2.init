@@ -16,8 +16,8 @@ get_config() {
 	config_get site_url $1 site_url ""
 	config_get cdn $1 cdn ""
 	config_get jwt_secret $1 jwt_secret ""
-	config_get data_dir $1 data_dir "/etc/openlist"
-	config_get temp_dir $1 temp_dir "/tmp/openlist"
+	config_get data_dir $1 data_dir "/etc/openlist2"
+	config_get temp_dir $1 temp_dir "/tmp/openlist2"
 	config_get token_expires_in $1 token_expires_in 48
 	config_get max_connections $1 max_connections 0
 	config_get max_concurrency $1 max_concurrency 64

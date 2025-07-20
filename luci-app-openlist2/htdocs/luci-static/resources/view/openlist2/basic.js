@@ -131,10 +131,10 @@ return view.extend({
 		o.rmempty = false;
 
 		o = s.taboption('basic', form.Value, 'data_dir', _('Data directory'));
-		o.default = '/etc/openlist';
+		o.default = '/etc/openlist2';
 
 		o = s.taboption('basic', form.Value, 'temp_dir', _('Cache directory'));
-		o.default = '/tmp/openlist';
+		o.default = '/tmp/openlist2';
 		o.rmempty = false;
 
 		o = s.taboption('basic', form.Button, '_newpassword', _('Reset Password'),
