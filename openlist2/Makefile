@@ -27,7 +27,7 @@ define Download/openlist-frontend
   HASH:=b57cfeabd160664478086a952d618f1b5ac022852909d38d7a31924b27067308
 endef
 
-PKG_BUILD_DEPENDS:=golang/host
+PKG_BUILD_DEPENDS:=golang/host fuse
 PKG_BUILD_PARALLEL:=1
 PKG_USE_MIPS16:=0
 PKG_BUILD_FLAGS:=no-mips16
